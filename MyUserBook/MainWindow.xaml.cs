@@ -40,15 +40,21 @@ namespace MyUserBook
             {
                 if (myContext.Users.Any(x => x.Password == tbPassword.Text && x.Login == tbLogin.Text))
                 {
+                    var us = myContext.Users.Where(x => x.Password == tbPassword.Text && x.Login == tbLogin.Text).First();
+                    myContext.Logs.Add( new Log(us));
+                    myContext.SaveChanges();
                     MessageBox.Show("Авторизация прошла");
                 }
                 else
                 {
+                    myContext.Logs.Add(new Log(tbLogin.Text , tbPassword.Text));
+                    myContext.SaveChanges();
                     MessageBox.Show("Авторизация не прошла");
                 }
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
             }
         }
