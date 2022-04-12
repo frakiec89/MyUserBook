@@ -1,0 +1,20 @@
+﻿<Window x:Class="MyUserBook.AddUserWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyUserBook"
+        mc:Ignorable="d"
+        Title="AddUserWindows" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="50">
+            <TextBlock >Введите Логин</TextBlock>
+            <TextBox x:Name="tbLogin" Margin="5"></TextBox>
+            <TextBlock >Введите Пароль</TextBlock>
+            <TextBox x:Name="tbPassword" Margin="5"></TextBox>
+            <Button x:Name="btAddUser" Margin="5" Click="btAddUser_Click" >Добавить</Button>
+          
+        </StackPanel>
+
+    </Grid>
+</Window>

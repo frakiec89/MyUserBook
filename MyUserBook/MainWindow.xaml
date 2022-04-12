@@ -1,0 +1,22 @@
+﻿<Window x:Class="MyUserBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyUserBook"
+        mc:Ignorable="d" FontSize="18"
+        Title="Вход" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="50">
+            <TextBlock >Логин</TextBlock>
+            <TextBox x:Name="tbLogin" Margin="5"></TextBox>
+            <TextBlock >Пароль</TextBlock>
+            <TextBox x:Name="tbPassword" Margin="5"></TextBox>
+
+            <Button x:Name="btAut" Margin="5" Click="btAut_Click" >Вход</Button>
+            <Button x:Name="btReg" Margin="5" Click="btReg_Click">Регистрация</Button>
+            
+        </StackPanel>
+
+    </Grid>
+</Window>
