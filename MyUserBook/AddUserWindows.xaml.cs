@@ -1,17 +1,6 @@
-﻿using MyUserBook.BD;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace MyUserBook
 {
@@ -27,15 +16,10 @@ namespace MyUserBook
 
         private void btAddUser_Click(object sender, RoutedEventArgs e)
         {
-            using MyContext myContext = new MyContext();
+            Controller.UserController userController = new Controller.UserController();     
             try
             {
-               User user = new User();
-               user.Password = tbPassword.Text;
-               user.Login = tbLogin.Text;
-
-                myContext.Add(user);
-                myContext.SaveChanges();
+                userController.AddUser(tbLogin.Text, tbPassword.Text);
                 MessageBox.Show("Пользователь  добавлен");
                 Close();
             }

@@ -1,19 +1,7 @@
-﻿using MyUserBook.BD;
+﻿using MyUserBook.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace MyUserBook
 {
     /// <summary>
@@ -35,26 +23,24 @@ namespace MyUserBook
 
         private void btAut_Click(object sender, RoutedEventArgs e)
         {
-            using MyContext  myContext = new MyContext();
+            Controller.UserController userController = new Controller.UserController();
+            Controller.LogsController logsController = new Controller.LogsController();
             try
             {
-                if (myContext.Users.Any(x => x.Password == tbPassword.Text && x.Login == tbLogin.Text))
+                if (userController.Users.Any(x => x.Password == tbPassword.Text && x.Login == tbLogin.Text))
                 {
-                    var us = myContext.Users.Where(x => x.Password == tbPassword.Text && x.Login == tbLogin.Text).First();
-                    myContext.Logs.Add( new Log(us));
-                    myContext.SaveChanges();
+                    var us = userController.Users.Where(x => x.Password == tbPassword.Text && x.Login == tbLogin.Text).First();
+                    logsController.AddLog(new Log(us));
                     MessageBox.Show("Авторизация прошла");
                 }
                 else
                 {
-                    myContext.Logs.Add(new Log(tbLogin.Text , tbPassword.Text));
-                    myContext.SaveChanges();
+                    logsController.AddLog(new Log(tbLogin.Text, tbPassword.Text));
                     MessageBox.Show("Авторизация не прошла");
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }

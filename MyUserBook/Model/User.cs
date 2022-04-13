@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace MyUserBook.BD
+namespace MyUserBook.Model
 {
+
+    [Serializable]
     public class User
     {
         public int UserId { get; set; }

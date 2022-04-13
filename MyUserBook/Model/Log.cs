@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace MyUserBook.BD
+namespace MyUserBook.Model
 {
+    [Serializable]
     public class Log
     {
         public int Id { get; set; }
